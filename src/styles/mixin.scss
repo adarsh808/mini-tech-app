@@ -1,0 +1,43 @@
+@import './variables.scss';
+
+@mixin BUTTON($color: #fff, $bgColor: #0078D4, $borderColor: #072b56, $focusBorderColor: #000) 
+{
+  color: $color;
+  background-color: $bgColor;
+  min-width: 7vw;
+  border-radius: 0;
+  height: 32px;
+  outline: none;
+  border: 1px solid $borderColor;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    color: lighten($color, 5%);
+    background-color: lighten($bgColor, 7%);
+    text-decoration: none;
+    outline: none;
+    border-color: lighten($borderColor, 5%);
+  }
+  &:active,
+  &:focus {
+    color: lighten($color, 5%);
+    background-color: lighten($bgColor, 5%);
+    text-decoration: none;
+    outline: 1px dashed #000;
+    outline-offset: 3px;
+    border-color: $focusBorderColor;
+  }
+  &:disabled,
+  &[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+}
+
+@mixin ANCHOR() {
+color: #075ab3;
+text-decoration: none;
+background-color: transparent;
+cursor: pointer;
+}
