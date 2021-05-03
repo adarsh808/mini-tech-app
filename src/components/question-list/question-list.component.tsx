@@ -31,7 +31,8 @@ const QuestionListComponent: React.FC = () => {
     [hasMore]
   );
 
-  useEffect(() => {
+    useEffect(() => {
+    setIsLoading(true);
     apiService.getQuestionList(pageNumber).then((response) => {
       let questionList = response.data.items.map((ques) => {
         ques.displayDate = new Date(ques.creation_date * 1000).toDateString();
@@ -66,7 +67,9 @@ const QuestionListComponent: React.FC = () => {
           footer={
             <React.Fragment>
               <b>Link to Page : </b>
-              <a href={question.link}>{question.link}</a>
+              <a href={question.link} rel="noreferrer" target="_blank">
+                {question.link}
+              </a>
             </React.Fragment>
           }
         >
